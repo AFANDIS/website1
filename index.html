@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ckb">
+<head>
+    <meta charset="UTF-8">
+    <title>جیهانی فیلم - دنیای فیلمەکان</title>
+    <style>
+        @font-face {
+            font-family: "NRT";
+            src: url("NRT-Reg.ttf");
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1c2c, #4a4e69);
+            font-family: "NRT", Arial, sans-serif;
+            min-height: 100vh;
+            direction: rtl;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .menu a:hover {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+        }
+
+        .main-content {
+            padding-top: 80px;
+        }
+
+        .movie-container {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .movie-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(
+                    135deg,
+                    rgba(26, 28, 44, 0.7),
+                    rgba(74, 78, 105, 0.5)
+                ),
+                linear-gradient(
+                    rgba(0,0,0,0.2) 0%,
+                    rgba(0,0,0,0.6) 100%
+                ),
+                url('friends-backdrop.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(3px);
+        }
+
+        .movie-content {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .movie-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .movie-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.2s;
+        }
+
+        .season-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            max-width: 800px;
+            animation: fadeInUp 1s ease 0.4s;
+        }
+
+        .season-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .season-button:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: #ffd700;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .movie-info {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .rating {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu ul {
+                gap: 1rem;
+            }
+
+            .movie-title {
+                font-size: 2.5rem;
+            }
+
+            .movie-description {
+                font-size: 1.1rem;
+            }
+
+            .season-list {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">جیهانی فیلم</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">سەرەکی</a></li>
+                    <li><a href="#">فیلمەکان</a></li>
+                    <li><a href="#">زنجیرەکان</a></li>
+                    <li><a href="#">تازەترین</a></li>
+                    <li><a href="#">هەژمار</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="movie-container">
+            <div class="movie-background"></div>
+            <div class="movie-content">
+                <h1 class="movie-title">هاوڕێکان - Friends</h1>
+                
+                <div class="movie-info">
+                    <div class="info-item">
+                        <span class="rating">٩.٥</span> / ١٠ IMDB
+                    </div>
+                    <div class="info-item">٢٣٥ ئەڵقە</div>
+                    <div class="info-item">١٩٩٤-٢٠٠٤</div>
+                </div>
+
+                <p class="movie-description">
+                    چیرۆکی ژیانی تایبەت و پیشەیی شەش هاوڕێ کە تەمەنیان لە نێوان بیست بۆ سی ساڵیدایە و لە گەڕەکی مانهاتەنی شاری نیویۆرک دەژین                </p>
+
+                <div class="season-list">
+                    <button class="season-button" onclick="window.location.href='season1.html'">وەرزی ١</button>
+                    <button class="season-button">وەرزی ٢</button>
+                    <button class="season-button">وەرزی ٣</button>
+                    <button class="season-button">وەرزی ٤</button>
+                    <button class="season-button">وەرزی ٥</button>
+                    <button class="season-button">وەرزی ٦</button>
+                    <button class="season-button">وەرزی ٧</button>
+                    <button class="season-button">وەرزی ٨</button>
+                    <button class="season-button">وەرزی ٩</button>
+                    <button class="season-button">وەرزی ١٠</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
